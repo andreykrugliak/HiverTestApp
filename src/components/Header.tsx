@@ -4,7 +4,7 @@ import {StyleSheet, SafeAreaView} from 'react-native';
 import {SearchBar, Header} from 'react-native-elements';
 
 const AppHeader = ({onChangeSearch, searchQuery}) => {
-  const [visible, setVisible] = useState(false);
+  const [visible, setVisible] = useState<boolean>(false);
 
   const openMenu = () => setVisible(true);
 

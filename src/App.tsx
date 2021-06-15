@@ -13,15 +13,13 @@ import Header from 'src/components/Header';
 import Loader from 'src/components/Loader';
 import TrendingListItem from 'src/components/TrendingListItem';
 import ErrorState from 'src/components/ErrorState';
-import {useDebounce} from './helpers/common';
-
-const extractKey = (item) => `${item.id}`;
+import {extractKeyId, useDebounce} from './helpers/common';
 
 const App = () => {
   const isDarkMode = useColorScheme() === 'dark';
   const [trending, setTrending] = useState<any[]>([]);
   const [expandedId, setExpandedId] = useState<number | null>(null);
-  const [searchQuery, setSearchQuery] = useState('');
+  const [searchQuery, setSearchQuery] = useState<string>('');
 
   const onChangeSearch = (query) => setSearchQuery(query);
 
@@ -73,7 +71,7 @@ const App = () => {
             onRefresh={refetch}
             refreshing={loading && Boolean(trending && trending.length)}
             data={trending}
-            keyExtractor={extractKey}
+            keyExtractor={extractKeyId}
             renderItem={({item}) => (
               <TrendingListItem
                 item={item}

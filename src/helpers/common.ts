@@ -1,5 +1,7 @@
 import {useEffect, useState} from 'react';
 
+export const extractKeyId = (item) => `${item.id}`;
+
 export const useDebounce = (value, delay) => {
   const [debouncedValue, setDebouncedValue] = useState(value);
 
